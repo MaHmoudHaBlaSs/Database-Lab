@@ -134,9 +134,7 @@ async function runQueries() {
     SET p.email = CONCAT(p.fName, p.lName, '@company.com');
   `);
 
-  // updatedEmails.forEach(row =>
-  //   console.log(`  ${row.email}`)
-  // );
+ console.log(`  Updated ${updatedEmails.affectedRows} person(s) email(s).`);
 
   // 4- Delete all courses that belong to persons from a specific country
   console.log('\n── QUERY 9: Delete all courses that belong to persons from a specific country ──');
@@ -145,12 +143,10 @@ async function runQueries() {
     DELETE c 
     FROM course c 
       JOIN person p ON p.idperson = c.person_idperson
-    WHERE country LIKE('EGYPT')
+    WHERE country = 'Egypt'
   `);
 
-  // deletedOnCountries.forEach(row =>
-  //   console.log(`  ${row.country} -> ${row.population}`)
-  // );
+ console.log(`  Deleted ${deletedOnCountries.affectedRows} course(s).`);
 
   // 5- Show each country and the average number of languages spoken by persons from that country,
   // only show countries where the average is more than 1
