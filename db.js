@@ -24,7 +24,7 @@ async function connectDb() {
   const connection = await mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: '' // TODO: change to your MySQL root password
+    password: '2199' 
   });
 
   await connection.query('CREATE DATABASE IF NOT EXISTS mycvproject');
@@ -34,8 +34,8 @@ async function connectDb() {
   pool = mysql.createPool({
     host: '127.0.0.1',
     user: 'root',
-    password: '', // keep in sync with the connection above
-    database: 'mycvproject'
+    password: '2199', // keep in sync with the connection above
+    database: 'CvDatabase'
   });
 
   // Parent table: one row per person in the CV form
